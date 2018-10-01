@@ -1,5 +1,4 @@
 {% set version = '0.1-20' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,24 +9,25 @@ package:
 source:
   fn: ggdendro_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/ggdendro_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/ggdendro/ggdendro_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/ggdendro_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/ggdendro/ggdendro_{{ version }}.tar.gz
   sha256: 125cae904fa5d426cccaf32ebe9c6297e9ef0c6fd3f19f61513834d03a0cf8ff
 
 build:
-  number: 0
+  merge_build_host: True  # [win]
+  number: 1
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
     - r-mass
     - r-ggplot2 >=0.9.2
-
   run:
     - r-base
     - r-mass
@@ -35,7 +35,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('ggdendro')"  # [not win]
+    - $R -e "library('ggdendro')"           # [not win]
     - "\"%R%\" -e \"library('ggdendro')\""  # [win]
 
 about:
@@ -48,8 +48,14 @@ about:
     the dendrogram plot data. The package provides implementations for tree, rpart,
     as well as diana and agnes cluster diagrams.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
