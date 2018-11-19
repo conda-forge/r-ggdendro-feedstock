@@ -14,9 +14,9 @@ source:
   sha256: 125cae904fa5d426cccaf32ebe9c6297e9ef0c6fd3f19f61513834d03a0cf8ff
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 1
-  skip: true  # [win32]
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
@@ -48,8 +48,7 @@ about:
     the dendrogram plot data. The package provides implementations for tree, rpart,
     as well as diana and agnes cluster diagrams.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
