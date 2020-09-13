@@ -1,4 +1,4 @@
-{% set version = "0.1.21" %}
+{% set version = "0.1.22" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/ggdendro_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ggdendro/ggdendro_{{ version }}.tar.gz
-  sha256: 02c39c32af437114f978f476cb21afdeb788784eeb8d4df69339f2d1e06c9249
+  sha256: f0a65f3498c1abc3076df0fb56364b63bdf5d212d8931f85bcc6997510916b6a
 
 build:
   merge_build_host: true  # [win]
