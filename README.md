@@ -1,11 +1,11 @@
-About r-ggdendro
-================
+About r-ggdendro-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggdendro-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/andrie/ggdendro
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-ggdendro-feedstock/blob/main/LICENSE.txt)
 
 Summary: This is a set of tools for dendrograms and tree plots using 'ggplot2'.  The 'ggplot2' philosophy is to clearly separate data from the presentation. Unfortunately the plot method for dendrograms plots directly to a plot device without exposing the data. The 'ggdendro' package resolves this by making available functions that extract the dendrogram plot data. The package provides implementations for tree, rpart, as well as diana and agnes cluster diagrams.
 
